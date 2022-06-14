@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ctrenfro/GPT3/static/css/main.54ba66e4.css",
+    "main.js": "/ctrenfro/GPT3/static/js/main.b8816aa6.js",
+    "index.html": "/ctrenfro/GPT3/index.html",
+    "main.54ba66e4.css.map": "/ctrenfro/GPT3/static/css/main.54ba66e4.css.map",
+    "main.b8816aa6.js.map": "/ctrenfro/GPT3/static/js/main.b8816aa6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54ba66e4.css",
+    "static/js/main.b8816aa6.js"
+  ]
+}
