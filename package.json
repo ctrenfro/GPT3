@@ -1,7 +1,7 @@
 {
   "name": "openaichallenge",
   "version": "0.1.0",
-  "homepage": "https://github.com/ctrenfro/GPT3",
+  "homepage": "https://ctrenfro.github.io/GPT3/",
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.18.3",
