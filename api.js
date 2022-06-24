@@ -9,10 +9,6 @@ const app = express();
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.json("hi");
-});
-
 app.get("/new", (req, res) => {
   const engine = req.query.engine;
   const prompt = req.query.prompt;
