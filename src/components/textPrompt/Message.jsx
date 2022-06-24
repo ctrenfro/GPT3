@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ResponseItem from "../responses/ReponseItem";
 import RangeButton from "../RangeButton";
 
 import "./Message.css";
+import axios from "axios";
 
 function Message() {
   const [promptInput, setPromptInput] = useState("");
@@ -15,48 +16,40 @@ function Message() {
     setEngine(e.target.value);
   };
 
-  const prompt = {
-    prompt: [promptInput],
-    temperature: value.toNumber,
-  };
-
-  useEffect(() => {
-    const ele = document.querySelector(".buble");
-    if (ele) {
-      ele.style.left = `${Number(value / 4)}px`;
-    }
-  });
-
   const fetchData = async (event) => {
     event.preventDefault();
     setIsLoading(true);
 
-    fetch(`https://api.openai.com/v1/engines/${engine}/completions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
+    const options = {
+      method: "GET",
+      url: "http://localhost:8000/new",
+      params: {
+        prompt: promptInput,
+        temperature: value,
+        engine: engine,
       },
-      body: JSON.stringify(prompt),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setIsLoading(false);
-        console.log(data);
+    };
 
+    await axios
+      .request(options)
+      .then((response) => {
+        const info = response.data;
         setNotes((prevNotes) => [
           ...prevNotes,
           {
             id: Date.now(),
             question: [promptInput],
-            answer: data.choices[0].text,
+            answer: info.choices[0].text,
             model: engineName(engine),
+            temp: value,
           },
         ]);
       })
       .catch(function (e) {
         console.error(e);
       });
+
+    setIsLoading(false);
 
     setPromptInput("");
   };
@@ -87,10 +80,10 @@ function Message() {
             onChange(radius);
           }}
         />
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3 col-sm-6">
-              <div class="counter">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3 col-sm-6">
+              <div className="counter">
                 <div className="counter-value">{value}</div>
               </div>
             </div>
@@ -195,7 +188,7 @@ function Message() {
       <section className="container">
         <form onSubmit={fetchData}>
           <div className="omrs-input-group">
-            <label class="omrs-input-underlined">
+            <label className="omrs-input-underlined">
               <input
                 type="text"
                 name="promptInfo"
@@ -204,7 +197,7 @@ function Message() {
                 onChange={(e) => setPromptInput(e.target.value)}
                 required
               ></input>
-              <span class="omrs-input-label">Enter</span>
+              <span className="omrs-input-label">Enter</span>
             </label>
 
             <input
@@ -225,6 +218,7 @@ function Message() {
               question={createNote.question}
               answer={createNote.answer}
               model={createNote.model}
+              temp={createNote.temp}
             />
           );
         })}
