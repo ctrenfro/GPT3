@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ctrenfro/GPT3/static/css/main.82b1612f.css",
-    "main.js": "/ctrenfro/GPT3/static/js/main.c8698c98.js",
+    "main.js": "/ctrenfro/GPT3/static/js/main.9ebbf931.js",
     "index.html": "/ctrenfro/GPT3/index.html",
     "main.82b1612f.css.map": "/ctrenfro/GPT3/static/css/main.82b1612f.css.map",
-    "main.c8698c98.js.map": "/ctrenfro/GPT3/static/js/main.c8698c98.js.map"
+    "main.9ebbf931.js.map": "/ctrenfro/GPT3/static/js/main.9ebbf931.js.map"
   },
   "entrypoints": [
     "static/css/main.82b1612f.css",
-    "static/js/main.c8698c98.js"
+    "static/js/main.9ebbf931.js"
   ]
 }
