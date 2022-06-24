@@ -22,7 +22,7 @@ function Message() {
 
     const options = {
       method: "GET",
-      url: "http://localhost:8000/new",
+      url: "https://ctrenfro.github.io/GPT3/",
       params: {
         prompt: promptInput,
         temperature: value,
