@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 8000;
+const port = process.env.PORT || 8000;
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -32,4 +32,4 @@ app.get("/new", (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log("Server is running on port 8000..."));
+app.listen(port, () => console.log("Server is running on port 8000..."));
