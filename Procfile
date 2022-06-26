@@ -1,2 +1,1 @@
-
-web: node index.js, node api.js
+web: npm run start, npm run start:backend
