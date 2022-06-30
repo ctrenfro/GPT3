@@ -2,10 +2,13 @@ const port = process.env.PORT || 8000;
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
+const path = require("path");
 
 require("dotenv").config();
 
 const app = express();
+
+app.use(express.static(path.resolve(__dirname, "./build")));
 
 app.use(cors());
 
