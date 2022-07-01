@@ -21,15 +21,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start:backend": "cd backend && nodemon api.js",
+    "start:backend": "cd backend && node api.js",
+    "start-client": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "cd backend && nodemon api.js",
-    "build": "react-scripts build",
+    "start": "cd backend && node api.js",
+    "build": "react-scripts build && cd backend && npm start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "frontend": "react-scripts start",
-    "dev": "npm run start:backend && npm run frontend",
     "heroku-postbuild": "npm install && npm run build"
   },
   "eslintConfig": {

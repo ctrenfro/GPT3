@@ -1,6 +1,6 @@
 const port = process.env.PORT || 8000;
 const express = require("express");
-const cors = require("cors");
+//const cors = require("cors");
 const axios = require("axios");
 const path = require("path");
 
@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, "../build")));
 
-app.use(cors());
+//app.use(cors());
 
 app.get("/new", (req, res) => {
   const engine = req.query.engine;
