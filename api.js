@@ -21,7 +21,6 @@ app.get("/new", (req, res) => {
   const engine = req.query.engine;
   const prompt = req.query.prompt;
   const temperature = parseFloat(req.query.temperature);
-  console.log(engine + "!!!!!!!!!!!!!!");
 
   const options = {
     method: "POST",
