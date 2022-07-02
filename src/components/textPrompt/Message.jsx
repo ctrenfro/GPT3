@@ -22,7 +22,7 @@ function Message() {
 
     const options = {
       method: "GET",
-      url: "http://localhost:8000/new",
+      url: "https://gpt3api.herokuapp.com/new",
       params: {
         prompt: promptInput,
         temperature: value,
