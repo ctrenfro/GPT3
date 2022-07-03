@@ -22,6 +22,8 @@ app.get("/new", (req, res) => {
   const prompt = req.query.prompt;
   const temperature = parseFloat(req.query.temperature);
 
+  console.log("TESTING!!!!!!!!!!!!!!!!!!!!!!!");
+
   const options = {
     method: "POST",
     url: `https://api.openai.com/v1/engines/${engine}/completions`,
