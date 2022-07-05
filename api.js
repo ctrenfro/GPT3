@@ -1,4 +1,3 @@
-import https from "node-https";
 const port = process.env.PORT || 8000;
 const express = require("express");
 const cors = require("cors");
@@ -17,10 +16,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(cors());
-
-const agent = new https.Agent({ rejectUnauthorized: false });
-
-//const httpsAgent = new https.Agent({ ca: MY_CA_BUNDLE });
 
 app.get("/new", (req, res) => {
   const engine = req.query.engine;
