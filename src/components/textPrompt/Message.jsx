@@ -46,7 +46,7 @@ function Message() {
         ]);
       })
       .catch(function (e) {
-        console.error(e);
+        console.error(e.response.data);
       });
 
     setIsLoading(false);

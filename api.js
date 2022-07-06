@@ -39,9 +39,14 @@ app.get("https://gpt3api.herokuapp.com/new", (req, res) => {
     },
   };
 
-  axios.request(options).then((response) => {
-    res.json(response.data);
-  });
+  axios
+    .request(options)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch(function (e) {
+      console.error(e.response.data);
+    });
 });
 
 app.listen(port, () => console.log("Server is running on port 8000..."));
