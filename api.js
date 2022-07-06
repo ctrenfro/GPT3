@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const path = require("path");
-const https = require("https");
 
 require("dotenv").config();
 
@@ -31,6 +30,10 @@ app.get("https://gpt3api.herokuapp.com/new", (req, res) => {
 
     headers: {
       "Content-Type": "application/json",
+      "Content-Length": Buffer.byteLength(
+        { engine, prompt, temperature },
+        "utf8"
+      ),
       Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
     },
     data: {
@@ -45,7 +48,7 @@ app.get("https://gpt3api.herokuapp.com/new", (req, res) => {
       res.json(response.data);
     })
     .catch(function (e) {
-      console.error(e.response.data);
+      console.error(e);
     });
 });
 
