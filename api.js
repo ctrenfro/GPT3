@@ -1,6 +1,8 @@
 const port = process.env.PORT || 8000;
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
+const https = require("https");
 const axios = require("axios");
 const path = require("path");
 
@@ -17,6 +19,12 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(cors());
 
+const httpsAgent = new https.Agent({
+  cert: fs.readFileSync("client.crt"),
+  key: fs.readFileSync("client.key"),
+  ca: fs.readFileSync("ca.crt"),
+});
+
 app.get("/new", (req, res) => {
   const engine = req.query.engine;
   const prompt = req.query.prompt;
@@ -27,6 +35,7 @@ app.get("/new", (req, res) => {
   const options = {
     method: "POST",
     url: `https://api.openai.com/v1/engines/${engine}/completions`,
+    httpsAgent: { httpsAgent },
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
