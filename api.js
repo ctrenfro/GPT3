@@ -2,18 +2,18 @@ const port = process.env.PORT || 8000;
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
-// const path = require("path");
+const path = require("path");
 
 require("dotenv").config();
 
 const app = express();
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("build"));
-//   app.get("*", (req, res) => {
-//     req.sendFile(path.resolve(__dirname, "build", "index.html"));
-//   });
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    req.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+}
 
 let corsOptions = {
   origin: ["URL ALLOWED"],
@@ -34,10 +34,6 @@ app.get("/new", (req, res) => {
 
     headers: {
       "Content-Type": "application/json",
-      "Content-Length": Buffer.byteLength(
-        { engine, prompt, temperature },
-        "utf8"
-      ),
       Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
     },
     data: {
