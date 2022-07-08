@@ -10,9 +10,6 @@ const app = express();
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    req.sendfile(path.resolve(__dirname, "build", "index.html"));
-  });
 }
 
 let corsOptions = {
