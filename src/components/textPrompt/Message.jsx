@@ -21,8 +21,8 @@ function Message() {
     setIsLoading(true);
 
     const options = {
-      method: "PUT",
-      url: "https://gpt3api.herokuapp.com/new",
+      method: "GET",
+      url: "/new",
       params: {
         prompt: promptInput,
         temperature: value,
