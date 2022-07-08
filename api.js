@@ -15,7 +15,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.use(cors());
+let corsOptions = {
+  origin: ["URL ALLOWED"],
+};
+
+app.use(cors(corsOptions));
 
 app.get("/new", (req, res) => {
   const engine = req.query.engine;
