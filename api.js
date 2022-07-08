@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(cors());
 
-app.get("https://gpt3api.herokuapp.com/new", (req, res) => {
+app.get("/new", (req, res) => {
   const engine = req.query.engine;
   const prompt = req.query.prompt;
   const temperature = parseFloat(req.query.temperature);
