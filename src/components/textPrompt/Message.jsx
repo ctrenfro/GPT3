@@ -57,7 +57,7 @@ function Message() {
   function engineName(engine) {
     if (engine === "text-davinci-002") return "Da Vinci";
     if (engine === "text-curie-001") return "Curie";
-    if (engine === "text-Babbage-001") return "Babbage";
+    if (engine === "text-babbage-001") return "Babbage";
     if (engine === "text-ada-001") return "Ada";
   }
 

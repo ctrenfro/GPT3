@@ -20,8 +20,9 @@ html {
 hr {
   width: 100%;
   border: 10px solid rgb(255, 255, 255);
-  border-radius: 10px;
+  background-color: white;
   margin: 2em auto;
+  height: 2px;
 }
 
 p {
